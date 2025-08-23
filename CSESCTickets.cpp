@@ -6,7 +6,7 @@ int main()
 {
     long long n,m;
     cin>>n>>m;
-    multiset<long long>s;
+    set<long long>s;
     for(long long i=0;i<n;i++)
     {
         long long x;
@@ -27,8 +27,7 @@ int main()
         {
             k--;
             cout<<*k<<endl;
-            auto it=s.find(*k);
-            s.erase(it);
+            s.erase(k);
         }
     }
 
