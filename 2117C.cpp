@@ -8,21 +8,19 @@ int main(){
   cin>>t;
   while(t--){
     ll n;
-    string s;
-    cin>>n>>s;
-    ll balance=0;
+    cin>>n;
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++) cin>>v[i];
+    set<ll>seen,total;
+
     ll ans=0;
     for(ll i=0;i<n;i++){
-      if(s[i]==')'){
-        balance--;
-      if(balance<0)
-      {
+      total.insert(v[i]);
+      seen.insert(v[i]);
+      if(total.size()==seen.size()){
         ans++;
-        balance=0;
+        total.clear();
       }
-      }
-      else
-        balance++;
     }
 
     cout<<ans<<endl;

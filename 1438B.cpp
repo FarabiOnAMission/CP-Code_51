@@ -10,12 +10,13 @@ int main(){
     ll n;
     cin>>n;
     vector<ll>v(n);
-    for(ll i=0;i<n;i++) cin>>v[i];
+    set<ll>s;
+    for(ll i=0;i<n;i++){
+       cin>>v[i];
+       s.insert(v[i]);
+    }
 
-    sort(v.rbegin(),v.rend());
-
-    for(ll i=0;i<n;i++) cout<<v[i]<<' ';
-
-    cout<<"\n";
+    if(s.size()<n) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
   }
 }

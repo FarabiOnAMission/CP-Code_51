@@ -1,45 +1,13 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+using ll=long long;
 
 int main()
 {
-    long long n;
+
+    ll n;
     cin>>n;
-
-    string s;
-    int c=0;
-
-    if(n==0)
-    {
-        s='0';
-    }
-    else
-    {
-
-    while(n>0)
-    {
-        if(n%2==0)
-        {
-            s+='0';
-        }
-        else
-            s+='1';
-
-        n/=2;
-    }
-    }
-    reverse(s.begin(),s.end());
-
-    for(int i=0;i<s.size();i++)
-    {
-        if(s[i]=='1')
-        {
-            c++;
-        }
-    }
-
-    cout<<c<<endl;
-
-
+    ll ans= __builtin_popcount(n);
+    cout<<ans<<endl;
 }

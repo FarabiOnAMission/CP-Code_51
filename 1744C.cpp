@@ -1,43 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll=long long;
 
 int main()
 {
-    long long t;
-    cin >> t;
-    while (t--)
+    ll t;
+    cin>>t;
+    while(t--)
     {
-        long long n;
-        char c;
+        ll n;
+        char x;
+        cin>>n>>x;
         string s;
-        cin >> n >> c >> s;
+        cin>>s;
 
-        if(c=='g')
-        {
+        if(x=='g'){
             cout<<0<<endl;
+            continue;
         }
-        else
-        {
 
-        string t = s + s;
-        long long ans = 0;
+        string check=s+s;
+        vector<ll>nxtg(2*n+1,0);
 
-        for (long long i = 0; i < n; i++)
-        {
-            if (s[i] == c)
-            {
-                for (long long j = i + 1; j < 2*n; j++)
-                {
-                    if (t[j] == 'g')
-                    {
-                        ans = max(ans, j - i);
-                        break;
-                    }
-                }
+        for(ll i=2*n-1;i>=0;i--){
+            if(check[i]=='g'){
+                nxtg[i]=i;
             }
+            else
+                nxtg[i]=nxtg[i+1];
         }
 
-        cout << ans << endl;
-    }
+        ll ans=0;
+        for(ll i=0;i<2*n;i++){
+            if(check[i]==x)
+                ans=max(ans,nxtg[i]-i);
+        }
+
+        cout<<ans<<endl;
+
     }
 }

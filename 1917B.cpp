@@ -8,21 +8,19 @@ int main(){
   cin>>t;
   while(t--){
     ll n;
+    cin>>n;
     string s;
-    cin>>n>>s;
-    ll balance=0;
+    cin>>s;
+    set<ll>dis;
+    vector<ll>prefdis(n,0);
+    for(ll i=0;i<n;i++){
+      dis.insert(s[i]);
+      prefdis[i]=dis.size();
+    }
+
     ll ans=0;
     for(ll i=0;i<n;i++){
-      if(s[i]==')'){
-        balance--;
-      if(balance<0)
-      {
-        ans++;
-        balance=0;
-      }
-      }
-      else
-        balance++;
+      ans+=prefdis[i];
     }
 
     cout<<ans<<endl;
